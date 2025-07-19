@@ -22,14 +22,13 @@ const transporter = nodemailer.createTransport({
   }
 });
 
-// 💌 Styled email template with logo
+// 💌 Styled email template (no logo)
 function getStyledEmailHTML() {
   return `
   <html>
     <body style="margin:0; padding:0; font-family: Arial, sans-serif; background-color: #f4f4f4;">
       <div style="max-width:600px; margin:30px auto; background:#ffffff; border-radius:8px; overflow:hidden; box-shadow:0 0 10px rgba(0,0,0,0.1);">
         <div style="background-color:#0f172a; color:#ffffff; padding:20px 30px; text-align:center;">
-          <img src="https://decryptlabsx.com/logo.png" alt="DecryptLabsX Logo" style="max-height:60px; margin-bottom:10px;">
           <h2 style="margin:0;">DecryptLabsX</h2>
           <p style="margin:0; font-size:14px;">Crypto & Stock Recovery Experts</p>
         </div>
@@ -77,7 +76,7 @@ async function checkTelegramUpdates() {
           from: `"DecryptLabsX" <${process.env.SMTP_USER}>`,
           to: toEmail,
           subject: "We Received Your Assessment Request",
-          html: getStyledEmailHTML() // ✅ Use styled HTML
+          html: getStyledEmailHTML()
         });
 
         console.log(`✅ Styled email sent to: ${toEmail}`);
