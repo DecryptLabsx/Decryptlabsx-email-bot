@@ -55,4 +55,17 @@ app.post("/webhook", async (req, res) => {
 
 // Start server
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log("🚀 Server running on port", PORT));
+
+app.listen(PORT, () => {
+  console.log(`✅ Server is running on port ${PORT}`);
+}).on('error', (err) => {
+  console.error('❌ Server failed to start:', err.message);
+});
+
+process.on('uncaughtException', (err) => {
+  console.error('❗ Uncaught Exception:', err.message);
+});
+
+process.on('unhandledRejection', (reason, promise) => {
+  console.error('❗ Unhandled Rejection:', reason);
+});
