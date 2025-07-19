@@ -56,6 +56,10 @@ app.post("/webhook", async (req, res) => {
 // Start server
 const PORT = process.env.PORT || 3000;
 
+app.get('/', (req, res) => {
+  res.send('🔄 Server is alive');
+});
+
 app.listen(PORT, () => {
   console.log(`✅ Server is running on port ${PORT}`);
 }).on('error', (err) => {
@@ -64,6 +68,7 @@ app.listen(PORT, () => {
 
 process.on('uncaughtException', (err) => {
   console.error('❗ Uncaught Exception:', err.message);
+  console.error(err.stack);
 });
 
 process.on('unhandledRejection', (reason, promise) => {
