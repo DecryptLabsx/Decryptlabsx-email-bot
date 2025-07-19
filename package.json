@@ -1,0 +1,15 @@
+{
+  "name": "decryptlabsx-email-bot",
+  "version": "1.0.0",
+  "description": "Auto email responder for Telegram messages",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "axios": "^1.6.7",
+    "dotenv": "^16.3.1",
+    "express": "^4.19.2",
+    "nodemailer": "^6.9.10"
+  }
+}
