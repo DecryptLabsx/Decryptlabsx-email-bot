@@ -44,8 +44,8 @@ async function checkTelegramUpdates() {
         await transporter.sendMail({
           from: `"DecryptLabsX" <${process.env.SMTP_USER}>`,
           to: toEmail,
-          subject: "We Received Your Audit Request",
-          text: `Hello,\n\nThanks for reaching out to DecryptLabsX. Your audit request has been received.\n\nWe'll get back to you shortly.\n\n- DecryptLabsX`
+          subject: "We Received Your Assessment Request",
+          text: `Hello,\n\nThanks for reaching out to DecryptLabsX. Your Assessment request has been received.\n\nWe'll get back to you shortly.\n\n- DecryptLabsX`
         });
 
         console.log(`✅ Email sent to: ${toEmail}`);
