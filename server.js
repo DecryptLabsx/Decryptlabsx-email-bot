@@ -25,6 +25,9 @@ const transporter = nodemailer.createTransport({
 // ✅ New: Use getUpdates instead of polling
 let lastUpdateId = 0;
 
+
+
+
 async function checkTelegramUpdates() {
   try {
     const response = await axios.get(`https://api.telegram.org/bot${process.env.TELEGRAM_BOT_TOKEN}/getUpdates?offset=${lastUpdateId + 1}`);
@@ -51,7 +54,8 @@ async function checkTelegramUpdates() {
       }
     }
   } catch (err) {
-    console.error("❌ Error checking Telegram updates:", err.message);
+    console.error("❌ Error checking Telegram updates:");
+    console.error(err.response?.data || err.message); // 👈 Show full Telegram API error
   }
 }
 
